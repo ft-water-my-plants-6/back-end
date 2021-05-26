@@ -3,7 +3,7 @@ const router = express.Router();
 const helpers = require("./users-model");
 
 router.get("/", async (req, res, next) => {
-  helpers
+  await helpers
     .getUsers()
     .then((users) => {
       res.status(200).json(users);
