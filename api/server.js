@@ -9,11 +9,13 @@ server.use(cors());
 
 const authRouter = require("./auth/auth-router");
 const usersRouter = require("./users/users-router");
+const plantRouter = require("./plants/plants-router")
 
 const restricted = require("./auth/auth-restricted");
 
 server.use("/api/auth", authRouter);
 server.use("/api/users", /*restricted,*/ usersRouter);
+server.use("/api/plants", plantRouter);
 
 server.use((err, req, res, next) => { // eslint-disable-line
   res.status(500).json({
